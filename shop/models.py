@@ -46,4 +46,27 @@ class Orders(models.Model):
     zip_code = models.CharField(max_length=111)
     phone = models.CharField(max_length=111, default="")
     objects=models.Manager()
-      
+
+
+
+class OrderUpdate(models.Model):
+    update_id  = models.AutoField(primary_key=True)
+    order_id = models.IntegerField(default="")
+    update_desc = models.CharField(max_length=5000)
+    timestamp = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.update_desc
+    objects=models.Manager()
+# class OrderUpdate(models.Model):
+#     update_id = models.AutoField(primary_key=True)    
+#     order_id = models.IntegerField(default="")
+#     update_desc= models.CharField(max_length=5000)
+#     timestamp= models.DateField(auto_now=True) 
+    
+
+#     def __str__(self):
+#         return self.update_desc[0:7] + "..." 
+#                                            #is se sure ke 7 character ikhnge 
+#                                                 #fir uske bad dot dot dikhnge 
+#     objects = models.Manager()                                
